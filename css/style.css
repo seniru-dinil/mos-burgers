@@ -207,4 +207,13 @@ ul li {
   color: rgba(0, 0, 0, 1);
 }
 
+.order-btn {
+  border: 1px solid black;
+  transition: opacity 100ms ease-in;
+}
+
+.order-btn:hover {
+  opacity: 0.9;
+}
+
 /* ----------------------- */
