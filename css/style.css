@@ -229,7 +229,6 @@ ul li {
 .wrapper {
   max-width: 87%;
   margin-inline: auto;
-  border: 1px solid red;
   border-radius: 1rem;
 }
 
@@ -239,7 +238,6 @@ ul li {
   gap: 1.5rem;
   max-height: 80vh;
   overflow-y: scroll;
-  padding-inline-end: 1rem;
   width: 70%;
 }
 
@@ -249,7 +247,10 @@ ul li {
   border-radius: 1rem;
   padding: 1em 1.4em;
   background: white;
-  border: 1px solid rgba(0, 0, 0, 0.5);
+}
+
+.box-shadow {
+  box-shadow: 0px 0px 20px 1px hsl(0, 0%, 90%);
 }
 
 .food__card .card__img {
@@ -297,11 +298,29 @@ ul li {
 }
 
 .cart__container {
-  border: 1px solid red;
   border-radius: 1rem;
+  background: white;
   height: fit-content;
   padding: 1em;
-  width: 30%;
+  width: 35%;
+}
+
+.cart__wrapper {
+  max-height: 200px;
+  padding: 1em;
+  overflow-y: scroll;
+  margin-block-end: 2rem;
+}
+
+.confirm--order {
+  background: transparent;
+  font-weight: bolder;
+  margin-inline: auto;
+  background: hsl(30, 100%, 45%);
+  color: white;
+  padding: 0.3em 0.6em;
+  border-radius: 100vmax;
+  width: 100%;
 }
 
 @media (max-width: 1092px) {
@@ -329,3 +348,68 @@ ul li {
   background: transparent;
 }
 /* ------------------- */
+
+.item-name {
+  margin-top: 0.5rem;
+}
+
+/* ---selected item---- */
+.selected__item {
+  margin-top: 1rem;
+  width: fit-content;
+  display: grid;
+  grid-template-columns: 2fr 1.5fr;
+  position: relative;
+}
+
+@media (max-width: 400px) {
+  .selected__item {
+    grid-template-columns: 1.5fr 2fr;
+  }
+}
+
+.selected__item::after {
+  content: "";
+  position: absolute;
+  width: 100%;
+  height: 1px;
+  background: hsl(0, 0%, 86%);
+  bottom: -5px;
+}
+
+.x-bg {
+  margin-inline: 0.3rem;
+  height: 20px;
+  width: 20px;
+  display: inline-block;
+  text-align: center;
+  line-height: 20px;
+  border-radius: 50%;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  font-size: 0.7rem;
+}
+
+/* ------------------- */
+
+/* increment and decrement buttons  */
+.increment__btn,
+.decrement__btn {
+  background: transparent;
+  font-size: 1rem;
+  background: hsl(30, 100%, 45%);
+  color: white;
+  border-radius: 50%;
+  height: 30px;
+  width: 30px;
+  display: grid;
+  place-items: center;
+  cursor: pointer;
+}
+
+.increment__btn > i,
+.decrement__btn > i {
+  padding: 0;
+  pointer-events: none;
+}
+
+/* -------------------------------- */
