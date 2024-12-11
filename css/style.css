@@ -135,7 +135,6 @@ ul li {
 }
 
 .grid__item {
-  border: 0.7px solid rgba(0, 0, 0, 0.2);
   border-radius: 1rem;
 }
 
@@ -224,21 +223,45 @@ ul li {
 /* ----order section---- */
 .order__section {
   margin-block: 1.5rem;
+  max-width: 87%;
+  margin-inline: auto;
 }
 
 .wrapper {
-  max-width: 87%;
-  margin-inline: auto;
+  display: grid;
+  grid-template-columns: 3fr 1.5fr;
+  gap: 1rem;
+}
+
+.customer {
+  background: white;
+  padding: 1rem;
   border-radius: 1rem;
+  height: 50px;
+}
+
+.plus__bg {
+  width: 26px;
+  height: 26px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  color: white;
+  background: hsl(30, 100%, 55%);
+  cursor: pointer;
+  font-size: 0.7rem !important;
+}
+
+.plus__bg i {
+  pointer-events: none;
 }
 
 .card__container {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
   gap: 1.5rem;
   max-height: 80vh;
   overflow-y: scroll;
-  width: 70%;
 }
 
 /* ----food card------ */
@@ -250,7 +273,7 @@ ul li {
 }
 
 .box-shadow {
-  box-shadow: 0px 0px 20px 1px hsl(0, 0%, 90%);
+  border: 1px solid rgba(0, 0, 0, 0.1);
 }
 
 .food__card .card__img {
@@ -260,7 +283,7 @@ ul li {
 }
 
 .card__title {
-  color: var(--base-fc);
+  color: black;
   font-weight: bold;
   font-size: 1.6rem;
   margin: 0;
@@ -269,15 +292,14 @@ ul li {
 
 .card__price {
   font-weight: bolder;
-  color: rgba(0, 0, 0, 0.9);
+  color: rgba(0, 0, 0);
   text-align: center;
   font-size: 1.5rem;
 }
 
 .card__description {
   margin-block: 0.5rem;
-  color: black;
-  opacity: 80%;
+  color: hsl(0, 0%, 40%);
   font-weight: 500;
 }
 
@@ -288,7 +310,7 @@ ul li {
   padding: 0.3em 0.8em;
   font-weight: bolder;
   color: white;
-  background: hsl(30, 100%, 45%);
+  background: hsl(30, 100%, 55%);
   width: 75%;
   transition: filter 200ms ease;
 }
@@ -300,16 +322,16 @@ ul li {
 .cart__container {
   border-radius: 1rem;
   background: white;
-  height: fit-content;
+  height: 400px;
   padding: 1em;
-  width: 35%;
+  margin-block-start: 1rem;
+  position: relative;
 }
 
 .cart__wrapper {
-  max-height: 200px;
+  height: 250px;
   padding: 1em;
-  overflow-y: scroll;
-  margin-block-end: 2rem;
+  overflow-y: auto;
 }
 
 .confirm--order {
@@ -320,7 +342,11 @@ ul li {
   color: white;
   padding: 0.3em 0.6em;
   border-radius: 100vmax;
-  width: 100%;
+  width: 90%;
+  position: absolute;
+  transform: translate(-50%, -50%);
+  left: 50%;
+  top: 94%;
 }
 
 @media (max-width: 1092px) {
@@ -396,7 +422,7 @@ ul li {
 .decrement__btn {
   background: transparent;
   font-size: 1rem;
-  background: hsl(30, 100%, 45%);
+  background: hsl(30, 100%, 60%);
   color: white;
   border-radius: 50%;
   height: 30px;
@@ -406,6 +432,12 @@ ul li {
   cursor: pointer;
 }
 
+.empty-cart-img {
+  height: 130px;
+  width: 130px;
+  filter: drop-shadow(5px 5px 10px 10px black);
+}
+
 .increment__btn > i,
 .decrement__btn > i {
   padding: 0;
@@ -413,3 +445,45 @@ ul li {
 }
 
 /* -------------------------------- */
+
+/* search customer */
+.divider {
+  width: 300px;
+  position: relative;
+  border-radius: 100vmax;
+  overflow: hidden;
+}
+h6 {
+  margin: 0;
+}
+.searchCustomerBtn {
+  position: absolute;
+  right: 0;
+  top: 0;
+  height: 100%;
+  padding-inline: 1rem;
+}
+
+.customerCard {
+  width: fit-content;
+  padding: 0.4rem 0.7rem;
+  border-radius: 1rem;
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  background: white;
+  cursor: pointer;
+  transition: background 100ms ease-in;
+}
+.customerCard:hover {
+  background: hsl(0, 0%, 100%, 0.2);
+}
+
+.customerBtn {
+  background: transparent;
+}
+/* 
+.customerName,
+.customerEmail {
+  pointer-events: none;
+} */
+
+/* -----------------*/
