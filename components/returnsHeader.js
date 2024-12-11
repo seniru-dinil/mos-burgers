@@ -10,14 +10,16 @@ export function returnsHeader() {
                 <img src="img/hamburger.png" alt="" class="mos__logo" />
               </div>
               <div class="header__right d-flex align-items-center gap-2">
-              <button class="renderHome"  id="home-btn" >
-              <div class="admin">          
+              <button class="renderHome"  id="home-btn">
+                <div class="admin">          
                   <i class="fa-solid fa-house"></i>
                 </div>
-                  </button>         
-                <div class="admin">
-                  <i class="fa-solid fa-user"></i>
-                </div>
+             </button>         
+                <buttton id="adminBtn">
+                  <div class="admin">
+                    <i class="fa-solid fa-user"></i>
+                  </div>
+                </buttton>
               </div>
             </nav>
           </header>

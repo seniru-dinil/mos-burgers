@@ -1,9 +1,11 @@
 export function returnsOrderPage() {
   return `
      <section class="order__section" id="order__section">
-      <h3 class="title my-3">MOS Menu</h3>
       <div class="wrapper">
-        <div class="card__container" id="card__container"></div>
+        <div class="seperator  d-grid">
+          <div class="search__food" id="selectFoodWrapper"></div>
+          <div class="card__container" id="card__container"></div>
+        </div>
         <div class="grid__divider">
           <div class="customer d-flex align-items-center justify-content-between box-shadow" id="customer">
           <p class="mt-3 opacity-75 fw-semibold ">Select or add new Customer</p>

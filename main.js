@@ -4,6 +4,9 @@ import { list } from "./components/foodItemData.js";
 import { returnsHome } from "./components/returnsHome.js";
 import { addCustomer } from "./components/addCustomer.js";
 import { arr } from "./components/customerData.js";
+import { searchFood } from "./components/searchFood.js";
+import { returnsBackBtn } from "./components/returnsBackBtn.js";
+import { printHelloWorld } from "./components/adminPage.js";
 
 let tempCart = [];
 let orderArray = [];
@@ -12,8 +15,10 @@ let isCustomerSelected = false;
 let selectedCustomerId = null;
 
 /* ---home page loading--- */
-// displayHome();
-displayOrderPage();
+displayHome();
+
+// displayOrderPage()
+
 /*-------------------------*/
 
 function displayHome() {
@@ -21,15 +26,18 @@ function displayHome() {
   document
     .getElementById("myButton")
     .addEventListener("click", displayOrderPage);
+  document.getElementById("adminBtn").addEventListener("click", () => {
+    displayAdminPage();
+  });
 }
 
 function displayOrderPage() {
   document.getElementById("root").innerHTML =
-    returnsHeader() + returnsOrderPage();
+    returnsOrderPage() + returnsBackBtn();
   loadCards();
   updateCart();
   updateTotal();
-  document.getElementById("home-btn").addEventListener("click", displayHome);
+  document.getElementById("backBtn").addEventListener("click", displayHome);
   document
     .getElementById("confirm-btn")
     .addEventListener("click", orderConfirmed);
@@ -38,15 +46,33 @@ function displayOrderPage() {
     .addEventListener("click", helperFunction);
 }
 
-function helperFunction() {
-  document.getElementById("root").innerHTML = returnsHeader() + addCustomer();
-  document.getElementById("home-btn").addEventListener("click", displayHome);
-  document
-    .getElementById("search__customer")
-    .addEventListener("input", myFunction);
+function displayAdminPage() {
+  document.getElementById("root").innerHTML = returnsBackBtn();
+  document.getElementById("backBtn").addEventListener("click", () => {
+    displayHome();
+  });
 }
 
-function myFunction(e) {
+function helperFunction() {
+  document.getElementById("root").innerHTML = addCustomer();
+  document.getElementById("submitBtn").addEventListener("click", () => {
+    arr.push({
+      name: document.getElementById("custName").value,
+      mobileNumber: document.getElementById("custId").value,
+      email: document.getElementById("custEmail").value,
+    });
+    document.querySelectorAll(".inpFld").forEach((item) => (item.value = ""));
+    Swal.fire({
+      text: "New Customer added Succesfully!",
+      icon: "success",
+    });
+  });
+  document
+    .getElementById("search__customer")
+    .addEventListener("input", searchCustomer);
+}
+
+function searchCustomer(e) {
   let value = e.target.value;
   let innerCustomer = ``;
   arr.forEach((customer) => {
@@ -77,79 +103,55 @@ function newHelperFunction(e) {
 }
 
 function loadCards() {
-  let card__container = document.getElementById("card__container");
   let inner = "";
-  list["Burgers"].forEach((element) => {
-    inner += `<div class="food__card box-shadow">
-    <div class="card__img"><img src="img/hamburger.png" alt="" /></div>
-    <h3 class="card__title fs-5">${element.name}</h3>
-    <p class="card__description text-center">
-    Lorem ipsum dolor sit amet consectetur adipisicing el    
-    </p>
-    <h3 class="card__price  fs-6">Rs.${element.price}</h3>
-    <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
-    </div>`;
+  document.getElementById("selectFoodWrapper").innerHTML = searchFood();
+  firstLoad(inner);
+  document.querySelectorAll("#searchFoodBtn").forEach((btn) => {
+    btn.addEventListener("click", setFoodCart);
   });
-  list.Submarines.forEach((element) => {
-    inner += `<div class="food__card box-shadow">
-    <div class="card__img"><img src="img/hamburger.png" alt="" /></div>
-    <h3 class="card__title fs-5">${element.name}</h3>
-    <p class="card__description text-center">
-    Lorem ipsum dolor sit amet consectetur adipisicing el    
-    </p>
-    <h3 class="card__price  fs-6">Rs.${element.price}</h3>
-    <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
-    </div>`;
-  });
-  list.Chicken.forEach((element) => {
-    inner += `<div class="food__card box-shadow">
-    <div class="card__img"><img src="img/hamburger.png" alt="" /></div>
-    <h3 class="card__title fs-5">${element.name}</h3>
-    <p class="card__description text-center">
-    Lorem ipsum dolor sit amet consectetur adipisicing el    
-    </p>
-    <h3 class="card__price  fs-6">Rs.${element.price}</h3>
-    <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
-    </div>`;
-  });
-  list.Beverages.forEach((element) => {
-    inner += `<div class="food__card box-shadow">
-    <div class="card__img"><img src="img/hamburger.png" alt="" /></div>
-    <h3 class="card__title fs-5">${element.name}</h3>
-    <p class="card__description text-center">
-    Lorem ipsum dolor sit amet consectetur adipisicing el    
-    </p>
-    <h3 class="card__price  fs-6">Rs.${element.price}</h3>
-    <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
-    </div>`;
-  });
-  list.Pasta.forEach((element) => {
-    inner += `<div class="food__card box-shadow">
-    <div class="card__img"><img src="img/hamburger.png" alt="" /></div>
-    <h3 class="card__title fs-5">${element.name}</h3>
-    <p class="card__description text-center">
-    Lorem ipsum dolor sit amet consectetur adipisicing el    
-    </p>
-    <h3 class="card__price  fs-6">Rs.${element.price}</h3>
-    <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
-    </div>`;
-  });
-  list.Fries.forEach((element) => {
-    inner += `<div class="food__card box-shadow">
-    <div class="card__img"><img src="img/hamburger.png" alt="" /></div>
-    <h3 class="card__title fs-5">${element.name}</h3>
-    <p class="card__description text-center">
-    Lorem ipsum dolor sit amet consectetur adipisicing el    
-    </p>
-    <h3 class="card__price  fs-6">Rs.${element.price}</h3>
-    <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
-    </div>`;
-  });
-
-  card__container.innerHTML = inner;
-  document.querySelectorAll(".card__btn").forEach((button) => {
-    button.addEventListener("click", addToCart);
-  });
+  function setFoodCart(e) {
+    inner = "";
+    let itemName = e.target.dataset.foodName;
+    console.log(itemName);
+    if (itemName === "All") {
+      firstLoad(inner);
+      return;
+    }
+    list[String(itemName)].forEach((element) => {
+      inner += `<div class="food__card box-shadow">
+      <div class="card__img"><img src="${element.imgUrl}" alt="" /></div>
+      <h3 class="card__title fs-5">${element.name}</h3>
+      <p class="card__description text-center">
+      ${element.description}  
+      </p>
+      <h3 class="card__price  fs-6">Rs.${element.price}</h3>
+      <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
+      </div>`;
+    });
+    document.getElementById("card__container").innerHTML = inner;
+    document.querySelectorAll(".card__btn").forEach((button) => {
+      button.addEventListener("click", addToCart);
+    });
+  }
+  function firstLoad(inner) {
+    for (let category in list) {
+      list[String(category)].forEach((element) => {
+        inner += `<div class="food__card box-shadow">
+        <div class="card__img"><img src="${element.imgUrl}" alt="" /></div>
+        <h3 class="card__title fs-5">${element.name}</h3>
+        <p class="card__description text-center">
+        ${element.description}  
+        </p>
+        <h3 class="card__price  fs-6">Rs.${element.price}</h3>
+        <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
+        </div>`;
+      });
+    }
+    document.getElementById("card__container").innerHTML = inner;
+    document.querySelectorAll(".card__btn").forEach((button) => {
+      button.addEventListener("click", addToCart);
+    });
+  }
 }
 
 function addToCart(event) {
@@ -169,7 +171,6 @@ function addToCart(event) {
       name: itemName,
       qty: 1,
       id: itemCode,
-      isEmpty: false,
       price: Number(itemPrice),
     });
     total += Number(itemPrice);
@@ -218,7 +219,6 @@ function increment(event) {
       document.getElementById(`numberOfItems-${item.id}`).innerHTML = item.qty;
     }
   });
-  update();
 }
 
 function decrement(event) {
@@ -227,8 +227,6 @@ function decrement(event) {
     if (itemId === item.id) {
       total -= item.price;
       if (item.qty == 1) {
-        item.isEmpty = true;
-        update();
         return;
       }
       item.qty--;
@@ -237,13 +235,6 @@ function decrement(event) {
     }
   });
   updateTotal();
-}
-
-function update() {
-  let cart = [];
-  cart = tempCart.filter((item) => !item.isEmpty);
-  tempCart = cart;
-  updateCart();
 }
 
 function updateTotal() {

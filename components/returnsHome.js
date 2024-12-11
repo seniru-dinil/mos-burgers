@@ -42,7 +42,7 @@ export function returnsHome() {
           <div class="home__img mt-2 ms-2">
             <img src="img/dish.png" alt="" />
           </div>
-          <h3 class="title mt-3">Your MOS Moment</h3>
+          <h3 class="title mt-2">Your MOS Moment</h3>
           <p class="main__paragraph mt-3">
             A flavor adventure that's totally you, right here, right now!
           </p>
@@ -52,9 +52,6 @@ export function returnsHome() {
             >
             Order Now
           </button>
-          <div class="home__img ms-auto me-4">
-            <img src="img/order-now.png" alt="" />
-          </div>
         </div>
         <div class="grid__item">
           <div class="home__img ms-auto me-4 mt-3">
