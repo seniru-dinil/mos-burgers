@@ -266,7 +266,7 @@ let productList = {
       price: 1500.0,
       discount: 0,
       description: "A timeless classic with fresh ingredients.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b1.png",
     },
     {
       itemCode: "B1002",
@@ -274,7 +274,7 @@ let productList = {
       price: 1600.0,
       discount: 15,
       description: "Delicious turkey patty with crisp veggies.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b2.png",
     },
     {
       itemCode: "B1003",
@@ -282,7 +282,7 @@ let productList = {
       price: 1400.0,
       discount: 0,
       description: "Juicy chicken patty with tangy sauce.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b3.png",
     },
     {
       itemCode: "B1004",
@@ -290,7 +290,7 @@ let productList = {
       price: 1000.0,
       discount: 5,
       description: "Chicken burger topped with creamy cheese.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b4.png",
     },
     {
       itemCode: "B1005",
@@ -298,7 +298,7 @@ let productList = {
       price: 1200.0,
       discount: 0,
       description: "Crispy fried chicken in a soft bun.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b5.png",
     },
     {
       itemCode: "B1006",
@@ -306,7 +306,7 @@ let productList = {
       price: 1800.0,
       discount: 5,
       description: "Unique burger with fresh olives added.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b2.png",
     },
     {
       itemCode: "B1007",
@@ -314,7 +314,7 @@ let productList = {
       price: 650.0,
       discount: 0,
       description: "Classic burger with crispy bacon strips.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b1.png",
     },
     {
       itemCode: "B1008",
@@ -322,7 +322,7 @@ let productList = {
       price: 800.0,
       discount: 12,
       description: "A fusion of burger and shawarma flavors.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b5.png",
     },
     {
       itemCode: "B1009",
@@ -330,7 +330,7 @@ let productList = {
       price: 1250.0,
       discount: 20,
       description: "Double cheese layers for ultimate satisfaction.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b3.png",
     },
     {
       itemCode: "B1010",
@@ -338,7 +338,7 @@ let productList = {
       price: 900.0,
       discount: 0,
       description: "Soft paneer patty with spices and sauce.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/burgers/b4.png",
     },
   ],
   Submarines: [
@@ -348,7 +348,7 @@ let productList = {
       price: 1900.0,
       discount: 16,
       description: "Packed with chicken and double cheese layers.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/submarines/s1.png",
     },
     {
       itemCode: "B10012",
@@ -356,7 +356,7 @@ let productList = {
       price: 3000.0,
       discount: 0,
       description: "Loaded with special ingredients for flavor.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/submarines/s2.png",
     },
     {
       itemCode: "B10013",
@@ -364,7 +364,7 @@ let productList = {
       price: 2300.0,
       discount: 0,
       description: "A unique submarine with a savory taste.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/submarines/s3.png",
     },
     {
       itemCode: "B10014",
@@ -372,7 +372,7 @@ let productList = {
       price: 2200.0,
       discount: 0,
       description: "Creamy cheese-filled submarine delight.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/submarines/s4.png",
     },
     {
       itemCode: "B10015",
@@ -380,7 +380,7 @@ let productList = {
       price: 2000.0,
       discount: 0,
       description: "Juicy chicken-filled submarine sandwich.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/submarines/s1.png",
     },
     {
       itemCode: "B10016",
@@ -388,7 +388,7 @@ let productList = {
       price: 2300.0,
       discount: 0,
       description: "Hearty submarine with rich grinder flavors.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/submarines/s2.png",
     },
     {
       itemCode: "B10017",
@@ -396,7 +396,7 @@ let productList = {
       price: 1500.0,
       discount: 0,
       description: "Submarine with crispy chicken perfection.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/submarines/s4.png",
     },
   ],
   Pasta: [
@@ -406,7 +406,7 @@ let productList = {
       price: 1600.0,
       discount: 15,
       description: "Cheesy pasta with tender chicken chunks.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/pasta/p1.jpg",
     },
     {
       itemCode: "B10019",
@@ -414,7 +414,7 @@ let productList = {
       price: 1700.0,
       discount: 0,
       description: "Rich penne pasta paired with chicken.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/pasta/p2.jpg",
     },
     {
       itemCode: "B10020",
@@ -422,7 +422,7 @@ let productList = {
       price: 2900.0,
       discount: 10,
       description: "Baked pasta with seasoned turkey and cheese.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/pasta/p3.jpg",
     },
     {
       itemCode: "B10021",
@@ -430,7 +430,7 @@ let productList = {
       price: 2000.0,
       discount: 0,
       description: "Pasta with shrimp in a creamy sauce.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/pasta/p4.jpg",
     },
     {
       itemCode: "B10022",
@@ -438,7 +438,7 @@ let productList = {
       price: 1950.0,
       discount: 0,
       description: "Pasta tossed in fresh lemon butter sauce.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/pasta/p5.jpg",
     },
     {
       itemCode: "B10023",
@@ -446,7 +446,7 @@ let productList = {
       price: 2400.0,
       discount: 1,
       description: "Tagliatelle pasta with tender chicken mix.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/pasta/p2.jpg",
     },
     {
       itemCode: "B10024",
@@ -454,7 +454,7 @@ let productList = {
       price: 2000.0,
       discount: 1,
       description: "Baked ravioli with cheese and tomato sauce.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/pasta/p1.jpg",
     },
   ],
   Fries: [
@@ -464,7 +464,7 @@ let productList = {
       price: 1200.0,
       discount: 0,
       description: "Thick and crispy steak-cut potato fries.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/fries/f1.png",
     },
     {
       itemCode: "B10026",
@@ -472,7 +472,7 @@ let productList = {
       price: 800.0,
       discount: 0,
       description: "Classic golden fries with crispy edges.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/fries/f2.png",
     },
     {
       itemCode: "B10027",
@@ -480,7 +480,7 @@ let productList = {
       price: 600.0,
       discount: 0,
       description: "Simple yet delicious potato fries treat.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/fries/f3.png",
     },
   ],
 
@@ -491,7 +491,7 @@ let productList = {
       price: 1200.0,
       discount: 0,
       description: "Crispy fried chicken with juicy inside.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/chicken/c3.png",
     },
     {
       itemCode: "B10029",
@@ -499,7 +499,7 @@ let productList = {
       price: 2100.0,
       discount: 0,
       description: "Tender chicken with smoky BBQ sauce.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/chicken/c2.png",
     },
     {
       itemCode: "B10030",
@@ -507,7 +507,7 @@ let productList = {
       price: 900.0,
       discount: 0,
       description: "Spicy and tangy devilled chicken dish.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/chicken/c5.png",
     },
     {
       itemCode: "B10031",
@@ -515,7 +515,7 @@ let productList = {
       price: 2400.0,
       discount: 5,
       description: "Spicy hot wings with flavorful sauce.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/chicken/c4.png",
     },
   ],
   Beverages: [
@@ -525,7 +525,7 @@ let productList = {
       price: 990.0,
       discount: 2,
       description: "Classic Pepsi to refresh your taste buds.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/beverages/pepsi.png",
     },
     {
       itemCode: "B10033",
@@ -533,7 +533,7 @@ let productList = {
       price: 1230.0,
       discount: 0,
       description: "Coca-Cola, the iconic fizzy beverage.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/beverages/cola.png",
     },
     {
       itemCode: "B10034",
@@ -541,7 +541,7 @@ let productList = {
       price: 1500.0,
       discount: 3,
       description: "Refreshing lemon-lime soda with crisp taste.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/beverages/sprite.png",
     },
     {
       itemCode: "B10035",
@@ -549,7 +549,7 @@ let productList = {
       price: 850.0,
       discount: 7,
       description: "Vibrant orange soda with fruity flavor.",
-      imgUrl: "img/hamburger.png",
+      imgUrl: "img/beverages/mirinda.png",
     },
   ],
 };

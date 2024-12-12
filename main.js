@@ -6,7 +6,7 @@ import { addCustomer } from "./components/addCustomer.js";
 import { arr } from "./components/customerData.js";
 import { searchFood } from "./components/searchFood.js";
 import { returnsBackBtn } from "./components/returnsBackBtn.js";
-import { printHelloWorld } from "./components/adminPage.js";
+import { returnsAdminPage } from "./components/adminPage.js";
 
 let tempCart = [];
 let orderArray = [];
@@ -16,9 +16,6 @@ let selectedCustomerId = null;
 
 /* ---home page loading--- */
 displayHome();
-
-// displayOrderPage()
-
 /*-------------------------*/
 
 function displayHome() {
@@ -47,7 +44,8 @@ function displayOrderPage() {
 }
 
 function displayAdminPage() {
-  document.getElementById("root").innerHTML = returnsBackBtn();
+  document.getElementById("root").innerHTML =
+    returnsBackBtn() + returnsAdminPage();
   document.getElementById("backBtn").addEventListener("click", () => {
     displayHome();
   });
@@ -225,10 +223,14 @@ function decrement(event) {
   let itemId = event.target.dataset.id;
   tempCart.forEach((item) => {
     if (itemId === item.id) {
-      total -= item.price;
       if (item.qty == 1) {
+        item.qty = 0;
+        total -= item.price;
+        updateTempCart();
+        updateCart();
         return;
       }
+      total -= item.price;
       item.qty--;
       document.getElementById(`numberOfItems-${item.id}`).innerHTML = item.qty;
       console.log(item.qty);
@@ -272,4 +274,9 @@ function orderConfirmed() {
     });
     return;
   }
+}
+
+function updateTempCart() {
+  let newCart = tempCart.filter((item) => item.qty != 0);
+  tempCart = newCart;
 }

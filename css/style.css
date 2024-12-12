@@ -271,7 +271,7 @@ ul li {
   display: flex;
   align-items: start;
   flex-wrap: wrap;
-  justify-content: space-around;
+  justify-content: space-between;
   gap: 1rem;
   margin-block-end: 1rem;
 }
@@ -291,8 +291,7 @@ ul li {
   border-radius: 1rem;
   padding: 1em 1.4em;
   background: white;
-  height: fit-content;
-  max-height: 310px !important;
+  max-height: 370px !important;
 }
 
 .box-shadow {
@@ -300,9 +299,14 @@ ul li {
 }
 
 .food__card .card__img {
-  width: 90px;
+  height: 110px;
+  width: auto;
   margin-inline: auto;
   margin-block-end: 1rem;
+}
+
+.card__img img {
+  object-fit: contain;
 }
 
 .card__title {
@@ -361,7 +365,7 @@ ul li {
   background: transparent;
   font-weight: bolder;
   margin-inline: auto;
-  background: hsl(30, 100%, 45%);
+  background: hsl(30, 100%, 55%);
   color: white;
   padding: 0.3em 0.6em;
   border-radius: 100vmax;
@@ -563,3 +567,7 @@ h6 {
   pointer-events: none;
 }
 /*  */
+
+/* admin page */
+
+/* --------- */
