@@ -122,7 +122,7 @@ function loadCards() {
       <p class="card__description text-center">
       ${element.description}  
       </p>
-      <h3 class="card__price  fs-6">Rs.${element.price}</h3>
+      <h3 class="card__price  fs-6">Rs.${element.price}<span class="opacity-50 fs-8"> / 1 piece</span></h3>
       <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
       </div>`;
     });
@@ -140,7 +140,7 @@ function loadCards() {
         <p class="card__description text-center">
         ${element.description}  
         </p>
-        <h3 class="card__price  fs-6">Rs.${element.price}</h3>
+        <h3 class="card__price  fs-6">Rs.${element.price}<span class="opacity-50 fs-8"> / 1 piece</span></h3>
         <button class="card__btn" data-name="${element.name}" data-id="${element.itemCode}" data-price="${element.price}">Add to cart</button>
         </div>`;
       });

@@ -567,6 +567,9 @@ h6 {
   pointer-events: none;
 }
 /*  */
+.fs-8 {
+  font-size: 0.7rem;
+}
 
 /* admin page */
 
