@@ -1,11 +1,7 @@
 export function returnsHeader() {
   return `
           <header class="header">
-            <nav class="navigation">
-              <div class="menu opacity">
-                <i class="fa-solid fa-bars"></i>
-                <span>Menu</span>
-              </div>
+            <nav class="navigation">              
               <div class="logo">
                 <img src="img/hamburger.png" alt="" class="mos__logo" />
               </div>
@@ -25,3 +21,8 @@ export function returnsHeader() {
           </header>
           `;
 }
+
+// <div class="menu opacity">
+//                 <i class="fa-solid fa-bars"></i>
+//                 <span>Menu</span>
+//               </div>
