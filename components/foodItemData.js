@@ -343,7 +343,7 @@ let productList = {
   ],
   Submarines: [
     {
-      itemCode: "B10011",
+      itemCode: "S10011",
       name: "Double Cheese Chicken Submarine",
       price: 1900.0,
       discount: 16,
@@ -351,7 +351,7 @@ let productList = {
       imgUrl: "img/submarines/s1.png",
     },
     {
-      itemCode: "B10012",
+      itemCode: "S10012",
       name: "MOS Special Submarine",
       price: 3000.0,
       discount: 0,
@@ -359,7 +359,7 @@ let productList = {
       imgUrl: "img/submarines/s2.png",
     },
     {
-      itemCode: "B10013",
+      itemCode: "S10013",
       name: "Special Horgie Submarine",
       price: 2300.0,
       discount: 0,
@@ -367,7 +367,7 @@ let productList = {
       imgUrl: "img/submarines/s3.png",
     },
     {
-      itemCode: "B10014",
+      itemCode: "S10014",
       name: "Cheese Submarine",
       price: 2200.0,
       discount: 0,
@@ -375,7 +375,7 @@ let productList = {
       imgUrl: "img/submarines/s4.png",
     },
     {
-      itemCode: "B10015",
+      itemCode: "S10015",
       name: "Chicken Submarine",
       price: 2000.0,
       discount: 0,
@@ -383,7 +383,7 @@ let productList = {
       imgUrl: "img/submarines/s1.png",
     },
     {
-      itemCode: "B10016",
+      itemCode: "S10016",
       name: "Grinder Submarine",
       price: 2300.0,
       discount: 0,
@@ -391,7 +391,7 @@ let productList = {
       imgUrl: "img/submarines/s2.png",
     },
     {
-      itemCode: "B10017",
+      itemCode: "S10017",
       name: "Crispy Chicken Submarine",
       price: 1500.0,
       discount: 0,
@@ -401,7 +401,7 @@ let productList = {
   ],
   Pasta: [
     {
-      itemCode: "B10018",
+      itemCode: "P10018",
       name: "Chicken Cheese Pasta",
       price: 1600.0,
       discount: 15,
@@ -409,7 +409,7 @@ let productList = {
       imgUrl: "img/pasta/p1.jpg",
     },
     {
-      itemCode: "B10019",
+      itemCode: "P10019",
       name: "Chicken Penne Pasta",
       price: 1700.0,
       discount: 0,
@@ -417,7 +417,7 @@ let productList = {
       imgUrl: "img/pasta/p2.jpg",
     },
     {
-      itemCode: "B10020",
+      itemCode: "P10020",
       name: "Ground Turkey Pasta Bake",
       price: 2900.0,
       discount: 10,
@@ -425,7 +425,7 @@ let productList = {
       imgUrl: "img/pasta/p3.jpg",
     },
     {
-      itemCode: "B10021",
+      itemCode: "P10021",
       name: "Creamy Shrimp Pasta",
       price: 2000.0,
       discount: 0,
@@ -433,7 +433,7 @@ let productList = {
       imgUrl: "img/pasta/p4.jpg",
     },
     {
-      itemCode: "B10022",
+      itemCode: "P10022",
       name: "Lemon Butter Pasta",
       price: 1950.0,
       discount: 0,
@@ -441,7 +441,7 @@ let productList = {
       imgUrl: "img/pasta/p5.jpg",
     },
     {
-      itemCode: "B10023",
+      itemCode: "P10023",
       name: "Tagliatelle Chicken Pasta",
       price: 2400.0,
       discount: 1,
@@ -449,7 +449,7 @@ let productList = {
       imgUrl: "img/pasta/p2.jpg",
     },
     {
-      itemCode: "B10024",
+      itemCode: "P10024",
       name: "Baked Ravioli",
       price: 2000.0,
       discount: 1,
@@ -459,7 +459,7 @@ let productList = {
   ],
   Fries: [
     {
-      itemCode: "B10025",
+      itemCode: "F10025",
       name: "Steak Fries",
       price: 1200.0,
       discount: 0,
@@ -467,7 +467,7 @@ let productList = {
       imgUrl: "img/fries/f1.png",
     },
     {
-      itemCode: "B10026",
+      itemCode: "F10026",
       name: "French Fries",
       price: 800.0,
       discount: 0,
@@ -475,7 +475,7 @@ let productList = {
       imgUrl: "img/fries/f2.png",
     },
     {
-      itemCode: "B10027",
+      itemCode: "F10027",
       name: "Potato Fries",
       price: 600.0,
       discount: 0,
@@ -486,7 +486,7 @@ let productList = {
 
   Chicken: [
     {
-      itemCode: "B10028",
+      itemCode: "C10028",
       name: "Fried Chicken",
       price: 1200.0,
       discount: 0,
@@ -494,7 +494,7 @@ let productList = {
       imgUrl: "img/chicken/c3.png",
     },
     {
-      itemCode: "B10029",
+      itemCode: "C10029",
       name: "BBQ Chicken",
       price: 2100.0,
       discount: 0,
@@ -502,7 +502,7 @@ let productList = {
       imgUrl: "img/chicken/c2.png",
     },
     {
-      itemCode: "B10030",
+      itemCode: "C10030",
       name: "Devilled Chicken",
       price: 900.0,
       discount: 0,
@@ -510,7 +510,7 @@ let productList = {
       imgUrl: "img/chicken/c5.png",
     },
     {
-      itemCode: "B10031",
+      itemCode: "C10031",
       name: "Hot Wings",
       price: 2400.0,
       discount: 5,
@@ -520,7 +520,7 @@ let productList = {
   ],
   Beverages: [
     {
-      itemCode: "B10032",
+      itemCode: "D10032",
       name: "Pepsi (330ml)",
       price: 990.0,
       discount: 2,
@@ -528,7 +528,7 @@ let productList = {
       imgUrl: "img/beverages/pepsi.png",
     },
     {
-      itemCode: "B10033",
+      itemCode: "D10033",
       name: "Coca-Cola (330ml)",
       price: 1230.0,
       discount: 0,
@@ -536,7 +536,7 @@ let productList = {
       imgUrl: "img/beverages/cola.png",
     },
     {
-      itemCode: "B10034",
+      itemCode: "D10034",
       name: "Sprite (330ml)",
       price: 1500.0,
       discount: 3,
@@ -544,7 +544,7 @@ let productList = {
       imgUrl: "img/beverages/sprite.png",
     },
     {
-      itemCode: "B10035",
+      itemCode: "D10035",
       name: "Mirinda (330ml)",
       price: 850.0,
       discount: 7,

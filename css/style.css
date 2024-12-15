@@ -1,3 +1,4 @@
+@import url("admin.css");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 *,
 *::after,
@@ -50,7 +51,7 @@ ul li {
   margin-inline: auto;
   border: 0.1px solid hsl(15, 100%, 45%);
   border: 0.1px solid rgba(0, 0, 0, 0.5);
-  margin-block-start: 2rem;
+  margin-block-start: 1.5rem;
   border-radius: 100vmax;
   padding: 0.6em;
   color: black;
@@ -509,11 +510,6 @@ h6 {
 .customerBtn {
   background: transparent;
 }
-/* 
-.customerName,
-.customerEmail {
-  pointer-events: none;
-} */
 
 /* -----------------*/
 
@@ -570,77 +566,3 @@ h6 {
 .fs-8 {
   font-size: 0.7rem;
 }
-
-/* admin page */
-
-/* header  */
-
-.adminPage {
-  margin-block-start: 1rem;
-}
-
-.adminHeader {
-  width: 90%;
-  margin-inline: auto;
-  border: 1px solid rgba(0, 0, 0, 0.2);
-  padding: 1em 1.5em;
-  border-radius: 1rem;
-  margin-block-end: 1rem;
-  background: white;
-}
-
-.adminNavigation__btn {
-  --size: 50px;
-  display: grid;
-  place-items: center;
-  background: transparent;
-  border-radius: 50%;
-  padding: 0.6em;
-  height: var(--size);
-  width: var(--size);
-}
-
-.adminNavigation__btn:nth-child(1) {
-  background: hsl(240, 100%, 60%, 0.3);
-}
-
-.adminNavigation__btn:nth-child(2) {
-  background: hsl(120, 100%, 55%, 0.3);
-}
-
-.adminNavigation__btn:nth-child(3) {
-  background: hsl(0, 100%, 55%, 0.3);
-}
-
-.adminBtn {
-  background: hsl(168, 100%, 45%) !important;
-}
-
-/* --------- */
-
-.adminBody {
-  width: 90%;
-  margin-inline: auto;
-  height: 80vh;
-  display: grid;
-  grid-template-columns: repeat(3, 1fr) 1.5fr;
-  grid-template-rows: repeat(2, 1fr);
-  gap: 1rem;
-}
-
-.adminBody__item {
-  border: 1px solid rgba(0, 0, 0, 0.3);
-  border-radius: 1.5rem;
-  padding: 1em;
-}
-
-.adminBody__item:nth-child(5) {
-  grid-column: 1 / span 2;
-  grid-row: 2/2;
-}
-
-.adminBody__item:nth-child(4) {
-  grid-row: span 2;
-}
-
-/* --------- */

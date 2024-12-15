@@ -13,6 +13,17 @@ let orderArray = [];
 let total = 0;
 let isCustomerSelected = false;
 let selectedCustomerId = null;
+let categoryOfTheFood = {
+  burgers: 0,
+  submarines: 0,
+  chicken: 0,
+  pasta: 0,
+  beverages: 0,
+  fries: 0,
+};
+
+let totalCustomerCount = 0;
+let totalSoldFoodItmes = 0;
 
 /* ---home page loading--- */
 displayHome();
@@ -64,6 +75,7 @@ function helperFunction() {
       text: "New Customer added Succesfully!",
       icon: "success",
     });
+    totalCustomerCount++;
   });
   document
     .getElementById("search__customer")
@@ -153,10 +165,27 @@ function loadCards() {
 }
 
 function addToCart(event) {
+  totalSoldFoodItmes++;
   let myBool = true;
   const itemName = event.target.dataset.name;
   const itemCode = event.target.dataset.id;
   const itemPrice = event.target.dataset.price;
+  foodCountTracker(itemCode.charAt(0));
+  function foodCountTracker(x) {
+    if (x == "B") {
+      categoryOfTheFood.burgers++;
+    } else if (x == "C") {
+      categoryOfTheFood.chicken++;
+    } else if (x == "F") {
+      categoryOfTheFood.fries++;
+    } else if (x == "D") {
+      categoryOfTheFood.beverages++;
+    } else if (x == "S") {
+      categoryOfTheFood.submarines++;
+    } else if (x == "P") {
+      categoryOfTheFood.pasta++;
+    }
+  }
   tempCart.forEach((element) => {
     if (element.id === itemCode) {
       element.qty++;
@@ -208,7 +237,24 @@ function updateCart() {
 }
 
 function increment(event) {
+  totalSoldFoodItmes++;
   let itemId = event.target.dataset.id;
+  foodCountTracker(itemId.charAt(0));
+  function foodCountTracker(x) {
+    if (x == "B") {
+      categoryOfTheFood.burgers++;
+    } else if (x == "C") {
+      categoryOfTheFood.chicken++;
+    } else if (x == "F") {
+      categoryOfTheFood.fries++;
+    } else if (x == "D") {
+      categoryOfTheFood.beverages++;
+    } else if (x == "S") {
+      categoryOfTheFood.submarines++;
+    } else if (x == "P") {
+      categoryOfTheFood.pasta++;
+    }
+  }
   tempCart.forEach((item) => {
     if (itemId === item.id) {
       item.qty++;
@@ -220,7 +266,24 @@ function increment(event) {
 }
 
 function decrement(event) {
+  totalSoldFoodItmes--;
   let itemId = event.target.dataset.id;
+  foodCountTracker(itemId.charAt(0));
+  function foodCountTracker(x) {
+    if (x == "B") {
+      categoryOfTheFood.burgers--;
+    } else if (x == "C") {
+      categoryOfTheFood.chicken--;
+    } else if (x == "F") {
+      categoryOfTheFood.fries--;
+    } else if (x == "D") {
+      categoryOfTheFood.beverages--;
+    } else if (x == "S") {
+      categoryOfTheFood.submarines--;
+    } else if (x == "P") {
+      categoryOfTheFood.pasta--;
+    }
+  }
   tempCart.forEach((item) => {
     if (itemId === item.id) {
       if (item.qty == 1) {
@@ -240,6 +303,8 @@ function decrement(event) {
 }
 
 function updateTotal() {
+  console.log(totalSoldFoodItmes);
+  console.log(categoryOfTheFood);
   if (tempCart.length == 0) {
     document.getElementById("total__amount").innerHTML = ``;
     return;

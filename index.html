@@ -27,7 +27,56 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
-    <div id="root"></div>
-    <script src="main.js" type="module"></script>
+    <section class="adminSection">
+      <div class="admin__navigation">
+        <h4 class="admin__logo text-center m-0 p-0 fw-bolder">MOS-Admin</h4>
+        <div class="admin__img--container">
+          <div class="admin__img mx-auto mb-2">
+            <img src="img/admin/user (2).png" alt="" />
+          </div>
+          <h6 class="text-center">Seniru Dinil</h6>
+        </div>
+        <div
+          class="admin__navigation--buttons d-flex flex-column align-items-center"
+        >
+          <button
+            id="viewOrders"
+            class="admin__navigation--btn"
+            data-type="view-orders"
+          >
+            <i class="fa-solid fa-box me-1"></i>
+            <p>Orders</p>
+          </button>
+          <button
+            id="viewCustomers"
+            class="admin__navigation--btn"
+            data-type="view-customers"
+          >
+            <i class="fa-solid fa-users me-1"></i>
+            <p>Customers</p>
+          </button>
+          <button
+            id="viewItems"
+            class="admin__navigation--btn"
+            data-type="view-items"
+          >
+            <i class="fa-solid fa-burger me-1"></i>
+            <p>Items</p>
+          </button>
+        </div>
+        <button
+          id="sign-out-btn"
+          class="sign-out-btn admin__navigation--btn"
+          data-type="sign-out"
+        >
+          <p>sign-out</p>
+          <i class="fa-solid fa-right-from-bracket"></i>
+        </button>
+      </div>
+      <div class="admin__home">
+        <h1 class="admin__header m-0 p-0">Hello Seniru</h1>
+      </div>
+    </section>
+    <script src="script.js"></script>
   </body>
 </html>
