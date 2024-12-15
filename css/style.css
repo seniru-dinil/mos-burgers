@@ -138,7 +138,7 @@ ul li {
 }
 
 .grid__item {
-  border-radius: 1rem;
+  border-radius: 2.5rem;
 }
 
 .grid__item:nth-child(1) {

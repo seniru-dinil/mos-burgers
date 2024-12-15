@@ -77,7 +77,7 @@ function searchCustomer(e) {
     if (customer.name.toLowerCase().includes(value)) {
       innerCustomer += `
         <button class="customerBtn d-flex align-items-center gap-4 mt-3 customerCard h-100" 
-                data-customer-id="${customer.mobileNumber}  ${customer.name}">        
+                data-customer-id="${customer.mobileNumber}">        
           <h6 class="customerName fs-6">${customer.name}</h6>
           <h6 class="customerEmail fs-6">${customer.email}</h6>
         </button>`;
@@ -245,7 +245,7 @@ function updateTotal() {
     return;
   }
   document.getElementById("total__amount").innerHTML = `
-  Total: ${total}
+    Total: ${total}
   `;
 }
 
