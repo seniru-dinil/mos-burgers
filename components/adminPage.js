@@ -2,7 +2,6 @@ export function returnsAdminPage() {
   return `
    <section class="adminSection">
       <div class="admin__navigation">
-        <h4 class="admin__logo text-center m-0 p-0 fw-bolder">MOS-Admin</h4>
         <div class="admin__img--container">
           <div class="admin__img mx-auto mb-2">
             <img src="img/admin/user (2).png" alt="" />
@@ -10,7 +9,7 @@ export function returnsAdminPage() {
           <h6 class="text-center fw-semibold">Seniru Dinil</h6>
         </div>
         <div
-          class="admin__navigation--buttons d-flex flex-column align-items-center gap-3"
+          class="admin__navigation--buttons mt-5  d-flex flex-column align-items-center gap-3"
         >
           <button
             id="viewOrders"

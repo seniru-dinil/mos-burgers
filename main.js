@@ -2,7 +2,6 @@ import { returnsOrderPage } from "./components/returnsOrderPage.js";
 import { returnsHeader } from "./components/returnsHeader.js";
 import { list } from "./components/foodItemData.js";
 import { returnsHome } from "./components/returnsHome.js";
-import { addCustomer } from "./components/addCustomer.js";
 import { arr } from "./components/customerData.js";
 import { searchFood } from "./components/searchFood.js";
 import { returnsBackBtn } from "./components/returnsBackBtn.js";
@@ -16,6 +15,7 @@ let selectedCustomerDetails = {
   nameOfCust: "",
   emailOfCust: "",
   idOfCust: "",
+  locatoinOfCust: "",
 };
 let categoryOfTheFood = {
   burgers: 0,
@@ -224,6 +224,7 @@ function helperFunction() {
             type="text"
             placeholder="please enter customer location"
             class="inpFld"
+            id="custLocation"
           />
           <button
             class="submitBtn addCustomer__btn--hover"
@@ -249,6 +250,7 @@ function helperFunction() {
       name: document.getElementById("custName").value,
       mobileNumber: document.getElementById("custId").value,
       email: document.getElementById("custEmail").value,
+      location: document.getElementById("custLocation").value,
     });
     document.querySelectorAll(".inpFld").forEach((item) => (item.value = ""));
     Swal.fire({
@@ -268,7 +270,7 @@ function searchCustomer(e) {
     if (customer.name.toLowerCase().includes(value)) {
       innerCustomer += `
         <button class="customerBtn d-flex align-items-center gap-4 mt-3 customerCard " 
-                data-customer-id="${customer.mobileNumber}" data-customer-name="${customer.name}" data-customer-email="${customer.email}">        
+                data-customer-id="${customer.mobileNumber}" data-customer-name="${customer.name}" data-customer-email="${customer.email}" data-customer-location="${customer.location}">        
           <h6 class="customerName fs-6">${customer.name}</h6>
           <h6 class="customerEmail fs-6">${customer.email}</h6>
         </button>`;
@@ -284,6 +286,7 @@ function newHelperFunction(e) {
   selectedCustomerDetails.nameOfCust = e.target.dataset.customerName;
   selectedCustomerDetails.idOfCust = e.target.dataset.customerId;
   selectedCustomerDetails.emailOfCust = e.target.dataset.customerEmail;
+  selectedCustomerDetails.locatoinOfCust = e.target.dataset.customerLocation;
   isCustomerSelected = true;
   Swal.fire({
     text: "Customer Selected Succesfully!",
@@ -497,6 +500,7 @@ function orderConfirmed() {
       customerName: selectedCustomerDetails.nameOfCust,
       customerId: selectedCustomerDetails.idOfCust,
       customerEmail: selectedCustomerDetails.emailOfCust,
+      customerLocation: selectedCustomerDetails.locatoinOfCust,
       selectedItems: tempCart,
       totalAmount: total,
       numberOfItems: tempCart.length,
@@ -505,6 +509,7 @@ function orderConfirmed() {
       nameOfCust: "",
       emailOfCust: "",
       idOfCust: "",
+      locatoinOfCust: "",
     };
     tempCart = [];
     total = 0;
