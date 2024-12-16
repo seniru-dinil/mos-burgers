@@ -120,8 +120,23 @@ function loadCustomerPage() {
   wrapper.id = "wrapper";
   document.body.appendChild(wrapper);
   new gridjs.Grid({
-    columns: ["Customer Name", "Customer Email", "Customer ID"],
-    data: customerDetails(),
+    columns: [
+      "Customer Name",
+      "Customer Email",
+      "Customer ID",
+      "Customer Image",
+    ],
+    // data: customerDetails(),
+    data: [
+      [
+        "seniru",
+        "seniru@gmail.com",
+        "0888269665",
+        gridjs.html(
+          `<div class="table__img"><img src="img/admin/best-seller.png" alt="" /></div>`
+        ),
+      ],
+    ],
     className: {
       table: "custom-table",
       thead: "custom-thead",
@@ -505,6 +520,9 @@ function orderConfirmed() {
       totalAmount: total,
       numberOfItems: tempCart.length,
     });
+    console.log(selectedCustomerDetails);
+    console.log(tempCart);
+    createInvoice();
     selectedCustomerDetails = {
       nameOfCust: "",
       emailOfCust: "",
@@ -533,4 +551,75 @@ function orderConfirmed() {
 function updateTempCart() {
   let newCart = tempCart.filter((item) => item.qty != 0);
   tempCart = newCart;
+}
+
+function createInvoice() {
+  const totalAmount = tempCart.reduce(
+    (sum, item) => sum + item.qty * item.price,
+    0
+  );
+  const { jsPDF } = window.jspdf;
+  const doc = new jsPDF();
+
+  doc.setFontSize(18);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(0, 102, 204);
+  doc.text("Order Summary", 10, 10);
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(0, 0, 0);
+  doc.text("Customer Details:", 10, 20);
+
+  doc.autoTable({
+    startY: 25,
+    theme: "grid",
+    headStyles: { fillColor: [0, 102, 204] },
+    bodyStyles: { fillColor: [240, 248, 255] },
+    head: [["Field", "Details"]],
+    body: [
+      ["Name", selectedCustomerDetails.nameOfCust],
+      ["Email", selectedCustomerDetails.emailOfCust],
+      ["Contact", selectedCustomerDetails.idOfCust],
+      ["Location", selectedCustomerDetails.locatoinOfCust],
+    ],
+  });
+
+  let startY = doc.lastAutoTable.finalY + 10;
+  doc.setTextColor(0, 0, 0);
+  doc.text("Order Details:", 10, startY);
+
+  doc.autoTable({
+    startY: startY + 5,
+    theme: "striped",
+    headStyles: { fillColor: [0, 102, 204] },
+    bodyStyles: { fillColor: [245, 245, 245] },
+    alternateRowStyles: { fillColor: [255, 255, 255] },
+    head: [["#", "Name", "Quantity", "Price", "Total"]],
+    body: tempCart.map((item, index) => [
+      index + 1,
+      item.name,
+      item.qty,
+      item.price,
+      item.qty * item.price,
+    ]),
+  });
+
+  let totalY = doc.lastAutoTable.finalY + 10;
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "bold");
+  doc.setTextColor(0, 0, 0);
+  doc.text(`Total Amount: ${totalAmount} LKR`, 10, totalY);
+
+  let finalY = totalY + 10;
+  doc.setFontSize(14);
+  doc.setFont("helvetica", "italic");
+  doc.setTextColor(0, 102, 0);
+  doc.text("We appreciate your business with Mos Burgers!", 10, finalY);
+
+  finalY += 10;
+  doc.setFontSize(12);
+  doc.setFont("helvetica", "normal");
+  doc.setTextColor(0, 0, 0);
+  doc.text("Order cleared by Counter 3.", 10, finalY);
+  doc.save("Order_Summary.pdf");
 }

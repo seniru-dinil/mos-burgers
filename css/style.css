@@ -565,3 +565,17 @@ h6 {
 }
 
 /* ------------------------------- */
+
+.table__img {
+  height: 30px;
+  width: 50px;
+  object-fit: contain;
+  display: grid;
+  place-items: center;
+  padding: 0.3em;
+}
+
+.table__img > img {
+  object-fit: contain;
+  margin-inline: auto;
+}
