@@ -1,0 +1,26 @@
+.custom-table {
+  width: 70%;
+  margin-block-start: 4rem;
+  margin-inline: auto;
+  border-collapse: collapse;
+}
+
+.custom-th {
+  background-color: #4caf50;
+  color: white;
+  text-align: left;
+  padding: 8px;
+}
+
+.custom-td {
+  padding: 8px;
+  text-align: left;
+}
+
+.custom-tr:nth-child(odd) {
+  background-color: #f9f9f9;
+}
+
+.custom-tr:hover {
+  background-color: #f1f1f1;
+}

@@ -12,7 +12,11 @@ let tempCart = [];
 let orderArray = [];
 let total = 0;
 let isCustomerSelected = false;
-let selectedCustomerId = null;
+let selectedCustomerDetails = {
+  nameOfCust: "",
+  emailOfCust: "",
+  idOfCust: "",
+};
 let categoryOfTheFood = {
   burgers: 0,
   submarines: 0,
@@ -30,6 +34,10 @@ displayHome();
 /*-------------------------*/
 
 function displayHome() {
+  const element = document.getElementById("wrapper");
+  if (element) {
+    element.remove();
+  }
   document.getElementById("root").innerHTML = returnsHeader() + returnsHome();
   document
     .getElementById("myButton")
@@ -47,11 +55,14 @@ function displayOrderPage() {
   updateTotal();
   document.getElementById("backBtn").addEventListener("click", displayHome);
   document
+    .getElementById("search__customer")
+    .addEventListener("input", searchCustomer);
+  document
     .getElementById("confirm-btn")
     .addEventListener("click", orderConfirmed);
-  document
-    .getElementById("addCustomerBtn")
-    .addEventListener("click", helperFunction);
+  document.getElementById("addCustomerBtn").addEventListener("click", () => {
+    helperFunction();
+  });
 }
 
 function displayAdminPage() {
@@ -60,10 +71,179 @@ function displayAdminPage() {
   document.getElementById("backBtn").addEventListener("click", () => {
     displayHome();
   });
+  document.querySelectorAll(".admin__navigation--btn").forEach((button) => {
+    button.addEventListener("click", (evt) => {
+      let y = evt.target.dataset.type;
+      if (y == "orders") {
+        loadOrderPage();
+      } else if (y == "customers") {
+        loadCustomerPage();
+      } else if (y == "items") {
+        loadItemsPage();
+      }
+    });
+  });
+}
+
+function loadOrderPage() {
+  document.getElementById("root").innerHTML = "";
+  let wrapper = document.createElement("div");
+  wrapper.id = "wrapper";
+  document.body.appendChild(wrapper);
+  new gridjs.Grid({
+    columns: [
+      "Customer Name",
+      "Customer Email",
+      "Customer ID",
+      "Number of Items",
+      "Spent",
+    ],
+    data: adminOrderPage(),
+    className: {
+      table: "custom-table",
+      thead: "custom-thead",
+      tbody: "custom-tbody",
+      th: "custom-th",
+      td: "custom-td",
+      tr: "custom-tr",
+    },
+  }).render(document.getElementById("wrapper"));
+  document.getElementById("wrapper").innerHTML += returnsBackBtn();
+  document.getElementById("backBtn").addEventListener("click", () => {
+    displayHome();
+  });
+}
+
+function loadCustomerPage() {
+  document.getElementById("root").innerHTML = "";
+  let wrapper = document.createElement("div");
+  wrapper.id = "wrapper";
+  document.body.appendChild(wrapper);
+  new gridjs.Grid({
+    columns: ["Customer Name", "Customer Email", "Customer ID"],
+    data: customerDetails(),
+    className: {
+      table: "custom-table",
+      thead: "custom-thead",
+      tbody: "custom-tbody",
+      th: "custom-th",
+      td: "custom-td",
+      tr: "custom-tr",
+    },
+  }).render(document.getElementById("wrapper"));
+  document.getElementById("wrapper").innerHTML += returnsBackBtn();
+  document.getElementById("backBtn").addEventListener("click", () => {
+    displayHome();
+  });
+}
+
+function loadItemsPage() {
+  document.getElementById("root").innerHTML = "";
+  let wrapper = document.createElement("div");
+  wrapper.id = "wrapper";
+  document.body.appendChild(wrapper);
+  new gridjs.Grid({
+    columns: ["Item Code", "Item Name", "Item Description"],
+    data: itemDetails(),
+    className: {
+      table: "custom-table",
+      thead: "custom-thead",
+      tbody: "custom-tbody",
+      th: "custom-th",
+      td: "custom-td",
+      tr: "custom-tr",
+    },
+  }).render(document.getElementById("wrapper"));
+  document.getElementById("wrapper").innerHTML += returnsBackBtn();
+  document.getElementById("backBtn").addEventListener("click", () => {
+    displayHome();
+  });
+}
+
+function adminOrderPage() {
+  let inner = [];
+  orderArray.forEach((order) => {
+    let arr = [
+      order.customerName,
+      order.customerId,
+      order.customerEmail,
+      order.numberOfItems,
+      order.totalAmount,
+    ];
+    inner.push(arr);
+  });
+  return inner;
+}
+
+function itemDetails() {
+  let inner = [];
+  for (let item in list) {
+    list[String(item)].forEach((food) => {
+      inner.push([food.itemCode, food.name, food.description]);
+    });
+  }
+  return inner;
+}
+
+function customerDetails() {
+  let inner = [];
+  arr.forEach((order) => {
+    let arr = [order.name, order.email, order.mobileNumber];
+    inner.push(arr);
+  });
+  return inner;
 }
 
 function helperFunction() {
-  document.getElementById("root").innerHTML = addCustomer();
+  document.getElementById("root").innerHTML += `
+  <div class="modal" id="addCustomerModal">
+      <div class="modal-content">
+        <h4 class="text-center fw-bolder addCustomer__title">
+          Add New Customer
+        </h4>
+        <form action="" class="addCustomerForm">
+          <input
+            type="text"
+            id="custName"
+            placeholder="please enter name"
+            class="inpFld"
+          />
+          <input
+            type="text"
+            id="custEmail"
+            placeholder="please enter email"
+            class="inpFld"
+          />
+          <input
+            type="text"
+            id="custId"
+            placeholder="please enter mobile number"
+            class="inpFld"
+          />
+          <input
+            type="text"
+            placeholder="please enter customer location"
+            class="inpFld"
+          />
+          <button
+            class="submitBtn addCustomer__btn--hover"
+            type="button"
+            id="submitBtn"
+          >
+            Add Customer
+          </button>
+        </form>
+      </div>
+    </div>
+  `;
+  const modal = document.getElementById("addCustomerModal");
+  modal.style.display = "block";
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+      displayOrderPage();
+    }
+  });
   document.getElementById("submitBtn").addEventListener("click", () => {
     arr.push({
       name: document.getElementById("custName").value,
@@ -76,10 +256,9 @@ function helperFunction() {
       icon: "success",
     });
     totalCustomerCount++;
+    modal.style.display = "none";
+    displayOrderPage();
   });
-  document
-    .getElementById("search__customer")
-    .addEventListener("input", searchCustomer);
 }
 
 function searchCustomer(e) {
@@ -88,22 +267,23 @@ function searchCustomer(e) {
   arr.forEach((customer) => {
     if (customer.name.toLowerCase().includes(value)) {
       innerCustomer += `
-        <button class="customerBtn d-flex align-items-center gap-4 mt-3 customerCard h-100" 
-                data-customer-id="${customer.mobileNumber}">        
+        <button class="customerBtn d-flex align-items-center gap-4 mt-3 customerCard " 
+                data-customer-id="${customer.mobileNumber}" data-customer-name="${customer.name}" data-customer-email="${customer.email}">        
           <h6 class="customerName fs-6">${customer.name}</h6>
           <h6 class="customerEmail fs-6">${customer.email}</h6>
         </button>`;
     }
   });
-  document.getElementById("customerCardWrapper").innerHTML = innerCustomer;
+  document.getElementById("cart__wrapper").innerHTML = innerCustomer;
   document
     .querySelectorAll(".customerBtn")
     .forEach((btn) => btn.addEventListener("click", newHelperFunction));
 }
 
 function newHelperFunction(e) {
-  console.log(e.target.dataset.customerId);
-  selectedCustomerId = e.target.dataset.customerId;
+  selectedCustomerDetails.nameOfCust = e.target.dataset.customerName;
+  selectedCustomerDetails.idOfCust = e.target.dataset.customerId;
+  selectedCustomerDetails.emailOfCust = e.target.dataset.customerEmail;
   isCustomerSelected = true;
   Swal.fire({
     text: "Customer Selected Succesfully!",
@@ -208,21 +388,20 @@ function addToCart(event) {
 
 function updateCart() {
   if (tempCart.length == 0) {
-    document.getElementById("cart__wrapper").innerHTML = `
-  <h4 class="text-black fs-5 opacity-25 text-center">your added items will appear here</h4>
-  <div class="empty-cart-img mx-auto mt-5"><img src="img/empty-cart.png" alt=""></div>
+    document.getElementById("cart__wrapper").innerHTML = `  
+  <div class="cartImg  text-center "><i class="fa-solid fa-cart-shopping  text-danger"></i></div>
     `;
     return;
   }
   let inside = "";
   tempCart.forEach((val) => {
     inside += `
-        <div class="selected__item  w-100">
+        <div class="selected__item  w-100 text-light">
           <h3 class="fs-6 opacity-75 item-name">${val.name}</h3>
           <div class="ms-auto  grid-col d-flex align-items-center gap-3">
-            <button class="plus__bg"  data-id="${val.id}" id="increment"><i class="fa-solid fa-plus" ></i></button>
+            <button class="selected__item--btn"  data-id="${val.id}" id="increment"><i class="fa-solid fa-plus" ></i></button>
             <div class="fs-6 opacity-100" >1<span class="x-bg"><i class="fa-solid fa-xmark"></i></span><span class="numberOfItems" id="numberOfItems-${val.id}">${val.qty}</span></div>
-            <button class="plus__bg" id="decrement"  data-id="${val.id}"><i class="fa-solid fa-minus"></i></button>
+            <button class="selected__item--btn" id="decrement"  data-id="${val.id}"><i class="fa-solid fa-minus"></i></button>
           </div>
         </div>
         `;
@@ -303,8 +482,6 @@ function decrement(event) {
 }
 
 function updateTotal() {
-  console.log(totalSoldFoodItmes);
-  console.log(categoryOfTheFood);
   if (tempCart.length == 0) {
     document.getElementById("total__amount").innerHTML = ``;
     return;
@@ -316,14 +493,21 @@ function updateTotal() {
 
 function orderConfirmed() {
   if (isCustomerSelected && tempCart.length != 0) {
-    let myObject = {
-      customerId: selectedCustomerId,
+    orderArray.push({
+      customerName: selectedCustomerDetails.nameOfCust,
+      customerId: selectedCustomerDetails.idOfCust,
+      customerEmail: selectedCustomerDetails.emailOfCust,
       selectedItems: tempCart,
+      totalAmount: total,
+      numberOfItems: tempCart.length,
+    });
+    selectedCustomerDetails = {
+      nameOfCust: "",
+      emailOfCust: "",
+      idOfCust: "",
     };
-    orderArray.push(myObject);
-    console.table(orderArray);
-    selectedCustomerId = null;
     tempCart = [];
+    total = 0;
     updateCart();
     updateTotal();
     Swal.fire({

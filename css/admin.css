@@ -1,20 +1,37 @@
 .adminSection {
   display: flex;
   align-items: start;
-  gap: 1rem;
-  background: hsl(0, 0%, 15%);
+  background: hsl(0, 0%, 12%);
   height: 100vh;
   width: 100%;
+  overflow-y: scroll;
   color: white;
 }
 
+@media (max-width: 680px) {
+  .adminSection .admin__navigation {
+    width: 40%;
+    gap: 2rem;
+  }
+}
+
+@media (max-width: 676px) {
+  .adminSection {
+    flex-direction: column;
+  }
+  .adminSection > * {
+    width: 100% !important;
+  }
+}
+
 .admin__navigation {
+  height: 100%;
   position: relative;
   padding: 1rem 3rem;
-  height: 100%;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: space-between;
   gap: 4rem;
 }
 
@@ -33,11 +50,11 @@
 }
 
 .admin__img--container {
-  margin-block-end: 3rem;
+  margin-block-end: 3.5rem;
 }
 
 .admin__img {
-  --img-size: 50px;
+  --img-size: 64px;
   width: var(--img-size);
   height: var(--img-size);
   border-radius: 50%;
@@ -54,11 +71,10 @@ p {
 
 .admin__navigation--btn {
   border-radius: 0.5rem;
-  width: 8.2rem;
+  width: 10rem;
   height: fit-content;
   padding-block: 0.8em;
-  background: rgba(255, 255, 255, 0.09);
-  margin-block-end: 1rem;
+  background: hsl(0, 0%, 19%);
   color: white;
   font-size: 0.93rem;
   font-weight: bold;
@@ -67,6 +83,10 @@ p {
   justify-content: center;
   gap: 0.2rem;
   transition: all 100ms ease;
+}
+
+.admin__navigation--btn > * {
+  pointer-events: none;
 }
 
 .admin__navigation--btn:hover {
@@ -86,4 +106,93 @@ p {
 
 .sign-out-btn:hover {
   background: hsl(36, 100%, 55%) !important;
+}
+
+.admin__home {
+  padding: 1rem;
+  height: 100%;
+  width: 100%;
+}
+
+.admin__home--wrapper {
+  display: grid;
+  width: 76%;
+  min-height: fit-content;
+  margin-inline: auto;
+  margin-block-start: 4.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(301px, 1fr));
+  gap: 1rem;
+  overflow-y: scroll;
+}
+
+.admin__body--item {
+  border-radius: 2rem;
+  max-height: fit-content;
+  background: hsl(0, 0%, 19%);
+  height: 270px;
+}
+
+.admin__body--item > h2 {
+  font-weight: bolder;
+  margin-block-start: 1.5rem;
+  font-size: 3rem;
+  text-align: center;
+}
+
+.admin__body--item {
+  background: hsl(0, 0%, 18%);
+  padding: 1rem;
+  position: relative;
+}
+
+.admin__body--item:nth-child(2) {
+  background: hsl(36, 100%, 40%);
+}
+
+.first-icon {
+  background: hsl(105, 100%, 55%, 0.1);
+  color: hsl(105, 100%, 50%);
+}
+
+.second-icon {
+  background: hsl(15, 100%, 60%, 0.1);
+  color: hsl(15, 100%, 60%);
+}
+
+.third-icon {
+  background: hsl(335, 86%, 25%, 0.3);
+  color: hsl(330, 100%, 55%);
+}
+
+.fourth-icon {
+  background: hsl(30, 100%, 60%, 0.1);
+  color: hsl(30, 100%, 60%);
+}
+
+.fifth-icon {
+  background: hsl(210, 100%, 55%, 0.1);
+  color: hsl(210, 100%, 50%);
+}
+
+.a-icon {
+  --icon-size: 30px;
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  border-radius: 50%;
+  width: var(--icon-size);
+  height: var(--icon-size);
+  display: grid;
+  place-items: center;
+}
+
+.a-icon > i {
+  font-size: 0.9rem;
+}
+
+.admin__body--img {
+  margin-block-start: 2rem;
+  height: 70px;
+  width: 70px;
+  margin-inline: auto;
 }

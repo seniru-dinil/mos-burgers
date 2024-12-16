@@ -19,7 +19,6 @@ export function returnsHome() {
           </p>
           <span
             class="fw-bolder text-center w-100 d-block fs-4 fw-semibold"
-            style="color: rgb(53, 53, 53)"
             >More than fast food. More than a meal. This is MOS !</span
           >
         </div>
@@ -47,7 +46,7 @@ export function returnsHome() {
             A flavor adventure that's totally you, right here, right now!
           </p>
           <button
-            class="order-btn mx-auto mt-4 w-50 py-2 rounded-pill text-light fw-bolder"          
+            class="order-btn mx-auto mt-4 w-50 py-2 rounded-pill  fw-bolder"          
             id="myButton"            
             >
             Order Now
