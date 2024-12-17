@@ -68,6 +68,10 @@ function displayOrderPage() {
 function displayAdminPage() {
   document.getElementById("root").innerHTML =
     returnsBackBtn() + returnsAdminPage();
+  listenToButton();
+}
+
+function listenToButton() {
   document.getElementById("backBtn").addEventListener("click", () => {
     displayHome();
   });
@@ -75,138 +79,87 @@ function displayAdminPage() {
     button.addEventListener("click", (evt) => {
       let y = evt.target.dataset.type;
       if (y == "orders") {
-        loadOrderPage();
+        document.getElementById("admin__home").innerHTML = loadOrderPage();
       } else if (y == "customers") {
-        loadCustomerPage();
+        document.getElementById("admin__home").innerHTML = loadCustomerPage();
+        document.querySelectorAll("#action-btn").forEach((button) => {
+          button.addEventListener("click", updateCustomer);
+        });
+        listenToButton();
       } else if (y == "items") {
         loadItemsPage();
+      } else {
+        displayAdminPage();
       }
     });
   });
 }
 
 function loadOrderPage() {
-  document.getElementById("root").innerHTML = "";
-  let wrapper = document.createElement("div");
-  wrapper.id = "wrapper";
-  document.body.appendChild(wrapper);
-  new gridjs.Grid({
-    columns: [
-      "Customer Name",
-      "Customer Email",
-      "Customer ID",
-      "Number of Items",
-      "Spent",
-    ],
-    data: adminOrderPage(),
-    className: {
-      table: "custom-table",
-      thead: "custom-thead",
-      tbody: "custom-tbody",
-      th: "custom-th",
-      td: "custom-td",
-      tr: "custom-tr",
-    },
-  }).render(document.getElementById("wrapper"));
-  document.getElementById("wrapper").innerHTML += returnsBackBtn();
-  document.getElementById("backBtn").addEventListener("click", () => {
-    displayHome();
+  let html = `
+  <section class="orderSection" id="orderSection">
+      <div class="orderGridSection Header">
+        <div>Oder ID</div>
+        <div>Customer Name</div>
+        <div>Email</div>
+        <div>Total</div>
+        <div>Status</div>
+        <div>Num Of Items</div>
+      </div>
+      `;
+  orderArray.forEach((order, index) => {
+    html += `
+    <div class="orderGridSection item">
+        <div class="bg-transparent">
+          <div class="odr mx-auto">ODR#0000${(orderArray, index + 1)}</div>
+        </div>
+        <div>${order.customerName}</div>
+        <div>${order.customerEmail}</div>
+        <div>${order.totalAmount}</div>
+        <div class="bg-transparent">
+          <div class="paid mx-auto">paid</div>
+        </div>
+        <div>${order.numberOfItems}</div>
+      </div>
+    `;
   });
+  html += `
+  </section>
+  `;
+  return html;
 }
 
 function loadCustomerPage() {
-  document.getElementById("root").innerHTML = "";
-  let wrapper = document.createElement("div");
-  wrapper.id = "wrapper";
-  document.body.appendChild(wrapper);
-  new gridjs.Grid({
-    columns: [
-      "Customer Name",
-      "Customer Email",
-      "Customer ID",
-      "Customer Image",
-    ],
-    // data: customerDetails(),
-    data: [
-      [
-        "seniru",
-        "seniru@gmail.com",
-        "0888269665",
-        gridjs.html(
-          `<div class="table__img"><img src="img/admin/best-seller.png" alt="" /></div>`
-        ),
-      ],
-    ],
-    className: {
-      table: "custom-table",
-      thead: "custom-thead",
-      tbody: "custom-tbody",
-      th: "custom-th",
-      td: "custom-td",
-      tr: "custom-tr",
-    },
-  }).render(document.getElementById("wrapper"));
-  document.getElementById("wrapper").innerHTML += returnsBackBtn();
-  document.getElementById("backBtn").addEventListener("click", () => {
-    displayHome();
+  let inner = `
+  <section class="viewCustomerSection">
+      <div class="customerGrid customerHeader" id="customerGrid">
+        <div>CustomerID</div>
+        <div>Customer Name</div>
+        <div>Customer Mobile</div>
+        <div>Customer Email</div>
+        <div>Location</div>
+        <div>Action</div>
+      </div>
+      `;
+  arr.forEach((customer, index) => {
+    inner += `
+      <div class="customerGrid">
+        <div>CTM#0000${index + 1}</div>
+        <div>${customer.name}</div>
+        <div>${customer.mobileNumber}</div>
+        <div>${customer.email}</div>
+        <div>${customer.location}</div>
+        <button class="action-btn text-light" id="action-btn" data-customer="${
+          customer.mobileNumber
+        }">Edit</button>
+      </div>
+      `;
   });
+  return inner + `</section>`;
 }
 
 function loadItemsPage() {
-  document.getElementById("root").innerHTML = "";
-  let wrapper = document.createElement("div");
-  wrapper.id = "wrapper";
-  document.body.appendChild(wrapper);
-  new gridjs.Grid({
-    columns: ["Item Code", "Item Name", "Item Description"],
-    data: itemDetails(),
-    className: {
-      table: "custom-table",
-      thead: "custom-thead",
-      tbody: "custom-tbody",
-      th: "custom-th",
-      td: "custom-td",
-      tr: "custom-tr",
-    },
-  }).render(document.getElementById("wrapper"));
-  document.getElementById("wrapper").innerHTML += returnsBackBtn();
-  document.getElementById("backBtn").addEventListener("click", () => {
-    displayHome();
-  });
-}
-
-function adminOrderPage() {
-  let inner = [];
-  orderArray.forEach((order) => {
-    let arr = [
-      order.customerName,
-      order.customerId,
-      order.customerEmail,
-      order.numberOfItems,
-      order.totalAmount,
-    ];
-    inner.push(arr);
-  });
-  return inner;
-}
-
-function itemDetails() {
-  let inner = [];
-  for (let item in list) {
-    list[String(item)].forEach((food) => {
-      inner.push([food.itemCode, food.name, food.description]);
-    });
-  }
-  return inner;
-}
-
-function customerDetails() {
-  let inner = [];
-  arr.forEach((order) => {
-    let arr = [order.name, order.email, order.mobileNumber];
-    inner.push(arr);
-  });
-  return inner;
+  console.log("items page loaded");
 }
 
 function helperFunction() {
@@ -284,14 +237,14 @@ function searchCustomer(e) {
   arr.forEach((customer) => {
     if (customer.name.toLowerCase().includes(value)) {
       innerCustomer += `
-        <button class="customerBtn d-flex align-items-center gap-4 mt-3 customerCard " 
-                data-customer-id="${customer.mobileNumber}" data-customer-name="${customer.name}" data-customer-email="${customer.email}" data-customer-location="${customer.location}">        
+      <button class="customerBtn d-flex align-items-center justify-content-between  customerCard " 
+      data-customer-id="${customer.mobileNumber}" data-customer-name="${customer.name}" data-customer-email="${customer.email}" data-customer-location="${customer.location}">        
           <h6 class="customerName fs-6">${customer.name}</h6>
           <h6 class="customerEmail fs-6">${customer.email}</h6>
         </button>`;
     }
   });
-  document.getElementById("cart__wrapper").innerHTML = innerCustomer;
+  document.getElementById("cart__container").innerHTML = innerCustomer;
   document
     .querySelectorAll(".customerBtn")
     .forEach((btn) => btn.addEventListener("click", newHelperFunction));
@@ -520,9 +473,12 @@ function orderConfirmed() {
       totalAmount: total,
       numberOfItems: tempCart.length,
     });
-    console.log(selectedCustomerDetails);
-    console.log(tempCart);
+    console.table(orderArray);
     createInvoice();
+    Swal.fire({
+      text: "Order confimed Succesfully!",
+      icon: "success",
+    });
     selectedCustomerDetails = {
       nameOfCust: "",
       emailOfCust: "",
@@ -533,10 +489,7 @@ function orderConfirmed() {
     total = 0;
     updateCart();
     updateTotal();
-    Swal.fire({
-      text: "Order confimed Succesfully!",
-      icon: "success",
-    });
+
     isCustomerSelected = false;
   } else {
     Swal.fire({
@@ -622,4 +575,78 @@ function createInvoice() {
   doc.setTextColor(0, 0, 0);
   doc.text("Order cleared by Counter 3.", 10, finalY);
   doc.save("Order_Summary.pdf");
+}
+
+function updateCustomer(e) {
+  let custID = e.target.dataset.customer;
+  for (let cust of arr) {
+    if (cust.mobileNumber == custID) {
+      myNewFunction(cust);
+      document.getElementById("submitBtn").addEventListener("click", () => {
+        cust.name = document.getElementById("custName").value;
+        cust.email = document.getElementById("custEmail").value;
+        cust.location = document.getElementById("custLocation").value;
+        cust.mobileNumber = document.getElementById("custId").value;
+        document.getElementById("addCustomerModal").style.display = "none";
+        document.getElementById("admin__home").innerHTML = loadCustomerPage();
+        listenToButton();
+        return;
+      });
+    }
+  }
+}
+
+function myNewFunction(customer) {
+  document.getElementById("root").innerHTML += `
+  <div class="modal" id="addCustomerModal">
+      <div class="modal-content">
+        <h4 class="text-center fw-bolder addCustomer__title">
+          Update New Customer
+        </h4>
+        <form action="" class="addCustomerForm">
+          <input
+            type="text"
+            id="custName"
+            class="inpFld"
+            value="${customer.name}"
+          />
+          <input
+            type="text"
+            id="custEmail"
+            placeholder="please enter email"
+            class="inpFld"
+            value="${customer.email}"
+          />
+          <input
+            type="text"
+            id="custId"
+            placeholder="please enter mobile number"
+            class="inpFld"
+            value="${customer.mobileNumber}"
+          />
+          <input
+            type="text"
+            placeholder="please enter customer location"
+            class="inpFld"
+            id="custLocation"
+            value="${customer.location}"
+          />
+          <button
+            class="submitBtn addCustomer__btn--hover"
+            type="button"
+            id="submitBtn"
+          >
+            Update Customer
+          </button>
+        </form>
+      </div>
+    </div>
+  `;
+  const modal = document.getElementById("addCustomerModal");
+  modal.style.display = "block";
+  window.addEventListener("click", (event) => {
+    if (event.target === modal) {
+      modal.style.display = "none";
+    }
+  });
 }

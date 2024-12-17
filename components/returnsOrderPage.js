@@ -6,7 +6,7 @@ export function returnsOrderPage() {
         <div class="seperator  d-grid">
           <div class="card__container" id="card__container"></div>
         </div>
-        <div class="grid__divider">
+        <div class="grid__divider" id="grid__divider">
           <div class="customer d-flex align-items-center justify-content-between box-shadow" id="customer">
           <input
               type="text"
@@ -16,7 +16,7 @@ export function returnsOrderPage() {
             />
           <button class="plus__bg" id="addCustomerBtn"><i class="fa-solid fa-plus"></i></button>
           </div>
-          <div class="cart__container box-shadow">
+          <div class="cart__container box-shadow" id="cart__container">
             <h3 class="p-0 fw-bold title w-100 fs-3">Your Cart</h3>
             <div class="cart__wrapper" id="cart__wrapper"></div>
             <div class="total ms-auto m-0 text-light" id="total__amount"></div>

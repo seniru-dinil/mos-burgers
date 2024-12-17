@@ -1,4 +1,5 @@
 @import url("admin.css");
+@import url("customerPage.css");
 @import url("orderPage.css");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
 *,
@@ -18,7 +19,7 @@ body {
   width: 100%;
   color: black;
   font-family: "Nunito", sans-serif;
-  background: #1a1a19;
+  background: hsl(60, 2%, 10%);
 }
 
 img {
@@ -329,7 +330,7 @@ ul li {
 }
 
 .cart__container {
-  border-radius: 2rem;
+  border-radius: 1.5rem;
   background: hsl(0, 0%, 17%);
   max-height: 355px;
   padding: 1em;
@@ -459,21 +460,27 @@ h6 {
 }
 
 .customer {
-  background: hsl(0, 0%, 17%);
+  background: hsl(0, 0%, 20%);
+  position: relative;
 }
 
 .customerCard {
-  width: fit-content;
+  color: hsl(216, 19%, 85%);
+  width: 100%;
   height: 50px;
   padding: 0.4rem 0.7rem;
   border-radius: 1rem;
   border: 1px solid rgba(0, 0, 0, 0.2);
-  background: white;
+  background: hsl(0, 0%, 20%);
   cursor: pointer;
   transition: background 100ms ease-in;
 }
 .customerCard:hover {
   background: hsl(0, 0%, 100%, 0.2);
+}
+
+.customerCard > * {
+  pointer-events: none;
 }
 
 /* -----------------*/

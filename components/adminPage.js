@@ -45,7 +45,7 @@ export function returnsAdminPage() {
           <i class="fa-solid fa-right-from-bracket"></i>
         </button>
       </div>
-      <div class="admin__home">        
+      <div class="admin__home" id="admin__home">        
         <div class="admin__home--wrapper">
           <div class="admin__body--item">
             <h3>Profit Made</h3>
