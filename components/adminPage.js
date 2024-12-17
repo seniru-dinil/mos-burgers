@@ -69,7 +69,7 @@ export function returnsAdminPage() {
           </div>
           <div class="admin__body--item">
             <h3>Total Items</h3>
-            <h2>13</h2>
+            <h2>35</h2>
             <div class="admin__body--img">
               <img src="img/admin/apps.png" alt="" />
             </div>
@@ -97,14 +97,10 @@ export function returnsAdminPage() {
               <i class="fa-solid fa-burger"></i>
             </div>
           </div>
-          <div class="admin__body--item">
-            <h3>Best Selling Item</h3>
-            <h2>Burgers</h2>
-            <div class="admin__body--img">
-              <img src="img/admin/rating.png" alt="" />
-            </div>
-            <div class="fourth-icon a-icon">
-              <i class="fa-solid fa-burger"></i>
+          <div class="admin__body--item">            
+           <img src="img/admin/bgImg.png" alt="" />
+            <div class="sixth-icon a-icon">
+              <i class="fa-solid fa-ghost"></i>
             </div>
           </div>
         </div>

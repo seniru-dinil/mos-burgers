@@ -134,19 +134,22 @@ p {
 
 .admin__body--item > h2 {
   font-weight: bolder;
-  margin-block-start: 1.5rem;
-  font-size: 3rem;
+  margin-block-start: 2.3rem;
+  font-size: 2rem;
   text-align: center;
+  color: hsl(216, 19%, 85%);
+}
+
+.admin__body--item > h3 {
+  font-weight: bold;
+  font-size: 1.3rem;
+  color: hsl(220, 8%, 69%);
 }
 
 .admin__body--item {
   background: hsl(0, 0%, 18%);
   padding: 1rem;
   position: relative;
-}
-
-.admin__body--item:nth-child(2) {
-  background: hsl(36, 100%, 40%);
 }
 
 .first-icon {
@@ -173,6 +176,10 @@ p {
   background: hsl(210, 100%, 55%, 0.1);
   color: hsl(210, 100%, 50%);
 }
+.sixth-icon {
+  background: hsl(330, 50%, 50%, 0.1);
+  color: hsl(330, 50%, 50%);
+}
 
 .a-icon {
   --icon-size: 30px;
@@ -191,8 +198,17 @@ p {
 }
 
 .admin__body--img {
-  margin-block-start: 2rem;
-  height: 70px;
-  width: 70px;
+  margin-block-start: 1.8rem;
+  height: 77px;
+  width: 77px;
+  padding: 0.9em;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.1);
   margin-inline: auto;
+  display: grid;
+  place-items: center;
+}
+
+.admin__navigation--active {
+  background: rgba(255, 255, 255, 0.1);
 }

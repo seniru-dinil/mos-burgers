@@ -1,4 +1,5 @@
 @import url("admin.css");
+@import url("itemPage.css");
 @import url("customerPage.css");
 @import url("orderPage.css");
 @import url("https://fonts.googleapis.com/css2?family=Nunito:ital,wght@0,200..1000;1,200..1000&display=swap");
@@ -285,6 +286,7 @@ ul li {
   width: auto;
   margin-inline: auto;
   margin-block-end: 1rem;
+  filter: brightness(0.85);
 }
 
 .card__img img {
@@ -509,7 +511,7 @@ h6 {
 }
 
 .inpFld {
-  max-width: 340px;
+  width: 340px;
   border-bottom: 1px solid hsl(220, 8%, 69%);
   background: transparent;
   color: white;
@@ -616,3 +618,76 @@ h6 {
   pointer-events: none;
 }
 /*  */
+
+.myModal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent background */
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 1000;
+}
+
+.addItemTitle {
+  color: hsl(216, 19%, 85%);
+}
+
+.addItem-icon {
+  height: 30px;
+  width: 30px;
+  border-radius: 50%;
+  background: hsl(120, 100%, 45%, 0.1);
+}
+
+.addItem-icon > i {
+  color: hsl(120, 100%, 45%);
+  font-size: 0.8rem;
+}
+
+.addItem-section {
+  background: hsl(0, 0%, 7%);
+  padding: 20px;
+  border-radius: 1rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  width: 400px;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+
+.addItem-section input,
+.addItem-section button {
+  width: 100%;
+  padding: 10px;
+  font-size: 1rem;
+  background: hsl(0, 0%, 14%);
+  border-radius: 5px;
+  color: white;
+}
+
+#foodType {
+  width: 35px;
+  height: 35px;
+  border-radius: 50%;
+  display: grid;
+  place-items: center;
+  padding: 0;
+  background: hsl(120, 100%, 40%, 0.2);
+}
+
+.addItem-section button {
+  cursor: pointer;
+  background: hsl(120, 60%, 40%);
+  color: white;
+  border: none;
+  border-radius: 5px;
+  font-weight: bold;
+}
+
+.addItem-section button:hover {
+  background: hsl(120, 100%, 45%);
+}

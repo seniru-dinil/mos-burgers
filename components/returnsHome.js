@@ -5,10 +5,7 @@ export function returnsHome() {
           <div
             class="welcom-wrapper d-flex justify-content-center gap-3 mt-2 align-items-center"
           >
-            <div class="home__img">
-              <img src="img/welcome.png" alt="" />
-            </div>
-            <h2 class="title m-0">Welcome to MOS</h2>
+            <h2 class="title mt-2">Welcome to MOS</h2>
           </div>
           <p class="main__paragraph mt-2 mb-3" style="text-align: justify">
             At MOS, we reimagine burgers as culinary art. Each creation is
