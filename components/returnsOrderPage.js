@@ -1,7 +1,10 @@
 export function returnsOrderPage() {
   return `
      <section class="order__section" id="order__section">
-     <div class="search__food" id="selectFoodWrapper"></div>
+     <button class="open-btn toggle-btn" id="open-btn"><i class="fa-solid fa-arrow-right"></i></button>
+     <div class="search__food" id="selectFoodWrapper">
+     <button class="close-btn toggle-btn" id="close-btn"><i class="fa-solid fa-arrow-left"></i></button>
+     </div>
       <div class="wrapper">
         <div class="seperator  d-grid">
           <div class="card__container" id="card__container"></div>

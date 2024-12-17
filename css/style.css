@@ -179,6 +179,7 @@ ul li {
   border-radius: 100vmax;
   background: hsl(36, 100%, 50%);
   padding: 0.5em 1.4em;
+  color: white;
   font: inherit;
   font-size: 1rem;
   font-weight: bold;
@@ -186,12 +187,12 @@ ul li {
 }
 
 .find-mos:hover {
-  color: rgba(0, 0, 0, 1);
+  color: white;
 }
 
 .order-btn {
   transition: opacity 100ms ease-in;
-  color: black;
+  color: white;
   background: hsl(36, 100%, 50%);
 }
 
@@ -245,14 +246,20 @@ ul li {
 }
 
 .search__food {
+  padding: 0.7em;
+  background: hsl(60, 2%, 10%, 0.7);
+  border-radius: 1rem;
   position: fixed;
-  top: 50%;
-  translate: 0 -50%;
-  left: 10px;
+  width: fit-content;
+  top: 30px;
+  left: 0;
   display: flex;
   flex-direction: column;
   justify-content: space-around;
   gap: 1rem;
+  z-index: 999;
+  transform: translateX(-120%);
+  transition: transform 300ms ease-out;
 }
 
 .searchFoodBtn {
@@ -371,7 +378,7 @@ ul li {
   color: white;
   padding: 0.6em 0.6em;
   border-radius: 8px;
-  width: 150px;
+  width: 100%;
   margin-block-start: 2rem;
   transition: background 100ms ease;
 }
@@ -502,7 +509,7 @@ h6 {
 }
 
 .inpFld {
-  width: 340px;
+  max-width: 340px;
   border-bottom: 1px solid hsl(220, 8%, 69%);
   background: transparent;
   color: white;
@@ -551,15 +558,15 @@ h6 {
 /* ------------------------------- */
 
 .modal {
-  display: none; /* Hidden by default */
-  position: fixed; /* Stay in place */
-  z-index: 1000; /* Sit on top */
+  display: none;
+  position: fixed;
+  z-index: 1000;
   left: 0;
   top: 0;
-  width: 100%; /* Full width */
-  height: 100%; /* Full height */
-  overflow: auto; /* Enable scroll if needed */
-  background-color: rgba(0, 0, 0, 0.5); /* Black background with opacity */
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0, 0, 0, 0.5);
 }
 
 .modal-content {
@@ -586,3 +593,26 @@ h6 {
   object-fit: contain;
   margin-inline: auto;
 }
+
+/* select food category open button */
+
+.open-btn {
+  position: fixed;
+  left: 30px;
+  top: 40px;
+}
+
+.toggle-btn {
+  --icon-size: 35px;
+  margin-inline: auto;
+  height: var(--icon-size);
+  background: hsl(0, 0%, 20%);
+  width: var(--icon-size);
+  border-radius: 50%;
+  color: hsl(216, 19%, 85%);
+}
+
+.toggle-btn > i {
+  pointer-events: none;
+}
+/*  */

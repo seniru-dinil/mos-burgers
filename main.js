@@ -265,7 +265,15 @@ function newHelperFunction(e) {
 
 function loadCards() {
   let inner = "";
-  document.getElementById("selectFoodWrapper").innerHTML = searchFood();
+  document.getElementById("selectFoodWrapper").innerHTML += searchFood();
+  const modal = document.getElementById("selectFoodWrapper");
+  modal.style.transform = "translateX(0)";
+  document
+    .getElementById("open-btn")
+    .addEventListener("click", OpenFoodCategoryWrapper);
+  document
+    .getElementById("close-btn")
+    .addEventListener("click", CloseFoodCategoryWrapper);
   firstLoad(inner);
   document.querySelectorAll("#searchFoodBtn").forEach((btn) => {
     btn.addEventListener("click", setFoodCart);
@@ -313,6 +321,26 @@ function loadCards() {
       button.addEventListener("click", addToCart);
     });
   }
+}
+
+function OpenFoodCategoryWrapper() {
+  const modal = document.getElementById("selectFoodWrapper");
+  modal.style.transform = "translateX(0)";
+  document.addEventListener("click", (e) => {
+    if (e.target != modal && e.target != document.getElementById("open-btn")) {
+      CloseFoodCategoryWrapper();
+    }
+  });
+  const closeButton = document.getElementById("close-btn");
+  closeButton.addEventListener("click", CloseFoodCategoryWrapper);
+}
+
+function CloseFoodCategoryWrapper() {
+  document.removeEventListener("click", (e) => console.log(e.target));
+  const modal = document.getElementById("selectFoodWrapper");
+  modal.style.transform = "translateX(-120%)";
+  const openButton = document.getElementById("open-btn");
+  openButton.addEventListener("click", OpenFoodCategoryWrapper);
 }
 
 function addToCart(event) {
