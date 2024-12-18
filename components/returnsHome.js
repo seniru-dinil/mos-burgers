@@ -43,7 +43,7 @@ export function returnsHome() {
             A flavor adventure that's totally you, right here, right now!
           </p>
           <button
-            class="order-btn mx-auto mt-4 w-50 py-2 rounded-pill  fw-bolder"          
+            class="order-btn mx-auto mt-5 w-50 py-2 rounded-pill  fw-bolder"          
             id="myButton"            
             >
             Order Now
@@ -73,7 +73,7 @@ export function returnsHome() {
             <h2 class="title m-0">Locate US</h2>
           </div>
           <button
-            class="find-mos d-flex mx-auto mt-4 justify-content-center align-items-center gap-2 location"
+            class="find-mos d-flex mx-auto mt-5 justify-content-center align-items-center gap-2 location"
           >
             <span>Swing by your local MOS!</span>
             <i class="fa-solid fa-location-crosshairs"></i>

@@ -90,7 +90,7 @@ ul li {
 }
 
 .admin:hover {
-  background: hsl(15, 100%, 70%);
+  background: hsl(0, 0%, 35%);
 }
 .admin i {
   font-size: 1rem;
@@ -131,16 +131,19 @@ ul li {
 .grid__item:nth-child(1) {
   grid-column: 1/4;
   grid-row: 1/3;
+  /* background: #3b1c32; */
 }
 
 .grid__item:nth-child(2) {
   grid-column: span 2;
   grid-row: 1 / span 4;
+  background: hsl(240, 5%, 16%);
 }
 
 .grid__item:nth-child(3) {
   grid-column: 1 / span 1;
   grid-row: 3 / span 3;
+  /* background: hsl(317, 80%, 10%); */
 }
 
 .grid__item:nth-child(4) {
@@ -369,8 +372,21 @@ ul li {
 }
 
 .selected__item--btn {
-  background: transparent;
+  background: #1877f2;
+  padding: 0.2em 0.5em;
+  border-radius: 5px;
   color: white;
+}
+
+.selected__item--btn > i {
+  pointer-events: none;
+}
+
+.total {
+  margin-inline-start: auto;
+  margin-block-start: auto;
+  width: fit-content;
+  font-weight: bold;
 }
 
 .confirm--order {
