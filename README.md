@@ -56,7 +56,7 @@ The application follows a mobile-first approach using:
 ![image](https://github.com/user-attachments/assets/5093c2b1-db59-4ebf-85c4-fcdf49112fed)
 
 ## Customer-Management
-![image](https://github.com/user-attachments/assets/190f8216-16ac-4ff0-a917-b816282b7bc2)
+![image](https://github.com/user-attachments/assets/3b06688e-b854-4c27-99ce-738993ebc87c)
 
 ## Order Food Page
 ![image](https://github.com/user-attachments/assets/91707080-58c6-4d67-aafa-b9ba8204d4e5)
